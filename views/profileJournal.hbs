@@ -1,0 +1,91 @@
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="#" style="color: white">Smart Travel</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active" style="margin-right: 10%;">
+                    <a class="nav-link" href="/" style="color: white !important;">Home <span class="sr-only">(current)</span></a>
+                </li>
+
+                <li class="nav-item dropdown" style="color: white">
+                    <button class="btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{ session.userName }}
+                    </button>
+
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="/settings">Settings</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/getWishList">Wish List</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/logOut">Log Out</a>
+                    </div>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0"  method="post" action="/searchProfiles">
+                <select data-trigger="" name="searchType" style="border-radius: .25rem;padding: 1%">
+                    <option value="Name">Name</option>
+                    <option value="Age">Age</option>
+                    <option value="City">City</option>
+                    <option value="Country">Country</option>
+                    <option value="phoneNumber">Number</option>
+                </select>
+
+                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="searchText">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+</header>
+<div class="content">
+
+    <div class="container-fluid">
+        <div class="row">
+            {{#data}}
+            <div class="col-md-6" style="padding: 3%; box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);">
+                <div class="card" style="width: 38rem;">
+                    {{#if Thumbnail}}
+                        <video controls autoplay name="media" height="350"><source src="{{ Link }}"></video>
+                    {{ else }}
+                    <img class="card-img-top" src="{{ Link }}" alt="Card image cap" height="350">
+                    {{/if}}
+                    <div class="card-body">
+                        <p>{{ Description }}</p>
+                    </div>
+                </div>
+            </div>
+                <div class="col-md-6" style="padding: 0%;padding-left: 1px;">
+                    <div id="map" style="height: 780px;"></div>
+                    <script>
+                        var key = 'cf0e4a0e194f14';
+                        // Add layers that we need to the map
+                        var streets = L.tileLayer.Unwired({key: key, scheme: "streets"});
+
+                        // Initialize the map
+                        var map = L.map('map', {
+                            center: [{{ Location.latitude }},{{ Location.longitude }}], //map loads with this location as center
+                            zoom: 15,
+                            layers: [streets] // Show 'streets' by default
+                        });
+
+                        // Add the 'scale' control
+                        L.control.scale().addTo(map);
+
+                        // Add the 'layers' control
+                        L.control.layers({
+                            "Streets": streets
+                        }).addTo(map);
+
+
+                        var marker = L.marker([{{ Location.latitude }},{{ Location.longitude }}]).addTo(map);
+                    </script>
+                </div>
+            {{/data}}
+        </div>
+    </div>
+
+</div>
+

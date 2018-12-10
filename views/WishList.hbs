@@ -1,0 +1,61 @@
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="#" style="color: white">Smart Travel</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active" style="margin-right: 10%;">
+                    <a class="nav-link" href="#" style="color: white !important;">Home <span class="sr-only">(current)</span></a>
+                </li>
+
+                <li class="nav-item dropdown" style="color: white">
+                    <button class="btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{ session.userName }}
+                    </button>
+
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="/settings">Settings</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/getWishList">Wish List</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/logOut">Log Out</a>
+                    </div>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0"  method="post" action="/searchProfiles">
+                <select data-trigger="" name="searchType" style="border-radius: .25rem;padding: 1%">
+                    <option value="Name">Name</option>
+                    <option value="Age">Age</option>
+                    <option value="City">City</option>
+                    <option value="Country">Country</option>
+                    <option value="phoneNumber">Number</option>
+                </select>
+
+                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="searchText">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+</header>
+<div class="content" style="margin-top: 5%;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="list-group">
+                    {{#if Data}}
+                        {{#each Data}}
+                        <a href="{{ ID }}" class="list-group-item list-group-item-action">{{ Name }}</a>
+                        {{/each}}
+                    {{else}}
+                        <div class="col-md-12 mb-4" style="text-align: center">
+                            <h1 style="color: firebrick">No Record Found</h1>
+                        </div>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,351 @@
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="#" style="color: white">Smart Travel</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active" style="margin-right: 10%;">
+                    <a class="nav-link" href="/" style="color: white !important;">Home <span class="sr-only">(current)</span></a>
+                </li>
+
+                <li class="nav-item dropdown" style="color: white">
+                    <button class="btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{ session.userName }}
+                    </button>
+
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="/settings">Settings</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/getWishList">Wish List</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/logOut">Log Out</a>
+                    </div>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0"  method="post" action="/searchProfiles">
+                <select data-trigger="" name="searchType" style="border-radius: .25rem;padding: 1%">
+                    <option value="Name">Name</option>
+                    <option value="Age">Age</option>
+                    <option value="City">City</option>
+                    <option value="Country">Country</option>
+                    <option value="phoneNumber">Number</option>
+                </select>
+
+                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="searchText">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+</header>
+<div class="content">
+
+    <div class="container-fluid">
+    {{#if Type1}}
+        {{#each Type1}}
+        <div class="row" style="border-bottom: 2px solid">
+            <div class="col-md-6" style="padding: 3%; box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);">
+                <div class="card" style="width: 38rem;">
+                    {{#if Thumbnail}}
+                        <video controls autoplay name="media" height="350"><source src="{{ Link }}"></video>
+                    {{ else }}
+                        <img class="card-img-top" src="{{ Link }}" alt="Card image cap" height="350">
+                    {{/if}}
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <span class="heading">User Rating</span>
+                                {{#times 0 Rating}}
+                                <span class="fa fa-star checked"></span>
+                                {{/times }}
+                                {{#times 5 Rating}}
+                                <span class="fa fa-star"></span>
+                                {{/times }}
+                            </div>
+                            <div class="col-md-4">
+                                <form method="get" action="/addToWishList/{{ @key }}/{{ Title }}">
+                                    <button class="heart" id="heart" type="submit"></button>
+                                </form>
+                            </div>
+                        </div>
+                        <p>4.1 average based on 254 reviews.</p>
+                        <hr style="border:3px solid #f1f1f1;position: static">
+                        <p>{{ Description }}</p>
+                    </div>
+                    <div class="card-footer">
+                        <form method="post" action="/addComment_Rating/1/{{ @key }}">
+                        <div class="row">
+                            <div class="col-md-3" style="text-align: right;padding-right: 0px;">
+                                <p style="margin-top: 8%;margin-bottom: 0px;">Your Rating:</p>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="rate">
+                                    <input type="radio" id="star5_{{ @key }}" name="rate" value="5" />
+                                    <label for="star5_{{ @key }}" title="text">5 stars</label>
+                                    <input type="radio" id="star4_{{ @key }}" name="rate" value="4" />
+                                    <label for="star4_{{ @key }}" title="text">4 stars</label>
+                                    <input type="radio" id="star3_{{ @key }}" name="rate" value="3" />
+                                    <label for="star3_{{ @key }}" title="text">3 stars</label>
+                                    <input type="radio" id="star2_{{ @key }}" name="rate" value="2" />
+                                    <label for="star2_{{ @key }}" title="text">2 stars</label>
+                                    <input type="radio" id="star1_{{ @key }}" name="rate" value="1" />
+                                    <label for="star1_{{ @key }}" title="text">1 star</label>
+                                </div>
+                            </div>
+                            <div class="col-md-3"><button class="btn" type="submit">Submit</button></div>
+                        </div>
+                        <div class="row" style="border-bottom: 1px solid #ccc">
+                            <div class="col-md-3">
+                                Your Comment:
+                            </div>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" placeholder="Comment" id="Comment-_{{ @key }}" name="comment">
+                            </div>
+                        </div>
+                        </form>
+                        {{#each Comments}}
+                        <div class="row commentsSection">
+                            <div class="col-md-3">
+                                {{ userName }}
+                            </div>
+                            <div class="col-md-9">
+                                {{ userComment }}
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6" style="padding: 0%;padding-left: 1px;">
+                <div id="map_{{ @key }}" style="height: 1020px;"></div>
+                <script>
+                    var key = 'cf0e4a0e194f14';
+                    // Add layers that we need to the map
+                    var streets = L.tileLayer.Unwired({key: key, scheme: "streets"});
+
+                    // Initialize the map
+                    var map = L.map('map_{{ @key }}', {
+                        center: [{{ Location.latitude }},{{ Location.longitude }}], //map loads with this location as center
+                        zoom: 15,
+                        layers: [streets] // Show 'streets' by default
+                    });
+
+                    // Add the 'scale' control
+                    L.control.scale().addTo(map);
+
+                    // Add the 'layers' control
+                    L.control.layers({
+                        "Streets": streets
+                    }).addTo(map);
+
+                    var marker = L.marker([{{ Location.latitude }},{{ Location.longitude }}]).addTo(map);
+
+                </script>
+            </div>
+        </div>
+        {{/each}}
+    {{/if}}
+    </div>
+
+    <div class="container-fluid">
+        {{#if Type2}}
+            {{#each Type2}}
+                <div class="row" style="border-bottom: 2px solid">
+                    <div class="col-md-6" style="padding: 3%; box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);">
+                        <div class="card" style="width: 38rem;">
+                            {{#if Thumbnail}}
+                                <video controls autoplay name="media" height="350"><source src="{{ Link }}"></video>
+                            {{ else }}
+                                <img class="card-img-top" src="{{ Link }}" alt="Card image cap" height="350">
+                            {{/if}}
+                            <div class="card-body">
+                                <span class="heading">User Rating</span>
+                                {{#times 0 Rating}}
+                                    <span class="fa fa-star checked"></span>
+                                {{/times }}
+                                {{#times 5 Rating}}
+                                    <span class="fa fa-star"></span>
+                                {{/times }}
+                                <p>4.1 average based on 254 reviews.</p>
+                                <hr style="border:3px solid #f1f1f1;position: static">
+                                <p>{{ Description }}</p>
+                            </div>
+                            <div class="card-footer">
+                                <form method="post" action="/addComment_Rating/2/{{ @key }}">
+                                    <div class="row">
+                                        <div class="col-md-3" style="text-align: right;padding-right: 0px;">
+                                            <p style="margin-top: 8%;margin-bottom: 0px;">Your Rating:</p>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="rate">
+                                                <input type="radio" id="star5" name="rate" value="5" />
+                                                <label for="star5" title="text">5 stars</label>
+                                                <input type="radio" id="star4" name="rate" value="4" />
+                                                <label for="star4" title="text">4 stars</label>
+                                                <input type="radio" id="star3" name="rate" value="3" />
+                                                <label for="star3" title="text">3 stars</label>
+                                                <input type="radio" id="star2" name="rate" value="2" />
+                                                <label for="star2" title="text">2 stars</label>
+                                                <input type="radio" id="star1" name="rate" value="1" />
+                                                <label for="star1" title="text">1 star</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3"><button class="btn" type="submit">Submit</button></div>
+                                    </div>
+                                    <div class="row" style="border-bottom: 1px solid #ccc">
+                                        <div class="col-md-3">
+                                            Your Comment:
+                                        </div>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" placeholder="Comment" name="comment">
+                                        </div>
+                                    </div>
+                                </form>
+                                {{#each Comments}}
+                                    <div class="row commentsSection">
+                                        <div class="col-md-3">
+                                            {{ userName }}
+                                        </div>
+                                        <div class="col-md-9">
+                                            {{ userComment }}
+                                        </div>
+                                    </div>
+                                {{/each}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6" style="padding: 0%;padding-left: 1px;">
+                        <div id="map_{{ @key }}" style="height: 1020px;"></div>
+                        <script>
+                            var key = 'cf0e4a0e194f14';
+                            // Add layers that we need to the map
+                            var streets = L.tileLayer.Unwired({key: key, scheme: "streets"});
+
+                            // Initialize the map
+                            var map = L.map('map_{{ @key }}', {
+                                center: [{{ Location.latitude }},{{ Location.longitude }}], //map loads with this location as center
+                                zoom: 15,
+                                layers: [streets] // Show 'streets' by default
+                            });
+
+                            // Add the 'scale' control
+                            L.control.scale().addTo(map);
+
+                            // Add the 'layers' control
+                            L.control.layers({
+                                "Streets": streets
+                            }).addTo(map);
+
+                            var marker = L.marker([{{ Location.latitude }},{{ Location.longitude }}]).addTo(map);
+
+                        </script>
+                    </div>
+                </div>
+            {{/each}}
+        {{/if}}
+    </div>
+
+    <div class="container-fluid">
+        {{#if Type3}}
+            {{#each Type3}}
+                <div class="row" style="border-bottom: 2px solid">
+                    <div class="col-md-6" style="padding: 3%; box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);">
+                        <div class="card" style="width: 38rem;">
+                            {{#if Thumbnail}}
+                                <video controls autoplay name="media" height="350"><source src="{{ Link }}"></video>
+                            {{ else }}
+                                <img class="card-img-top" src="{{ Link }}" alt="Card image cap" height="350">
+                            {{/if}}
+                            <div class="card-body">
+                                <span class="heading">User Rating</span>
+                                {{#times 0 Rating}}
+                                    <span class="fa fa-star checked"></span>
+                                {{/times }}
+                                {{#times 5 Rating}}
+                                    <span class="fa fa-star"></span>
+                                {{/times }}
+                                <p>4.1 average based on 254 reviews.</p>
+                                <hr style="border:3px solid #f1f1f1;position: static">
+                                <p>{{ Description }}</p>
+                            </div>
+                            <div class="card-footer">
+                                <form method="post" action="/addComment_Rating/3/{{ @key }}">
+                                    <div class="row">
+                                        <div class="col-md-3" style="text-align: right;padding-right: 0px;">
+                                            <p style="margin-top: 8%;margin-bottom: 0px;">Your Rating:</p>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="rate">
+                                                <input type="radio" id="star5" name="rate" value="5" />
+                                                <label for="star5" title="text">5 stars</label>
+                                                <input type="radio" id="star4" name="rate" value="4" />
+                                                <label for="star4" title="text">4 stars</label>
+                                                <input type="radio" id="star3" name="rate" value="3" />
+                                                <label for="star3" title="text">3 stars</label>
+                                                <input type="radio" id="star2" name="rate" value="2" />
+                                                <label for="star2" title="text">2 stars</label>
+                                                <input type="radio" id="star1" name="rate" value="1" />
+                                                <label for="star1" title="text">1 star</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3"><button class="btn" type="submit">Submit</button></div>
+                                    </div>
+                                    <div class="row" style="border-bottom: 1px solid #ccc">
+                                        <div class="col-md-3">
+                                            Your Comment:
+                                        </div>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" placeholder="Comment" name="comment">
+                                        </div>
+                                    </div>
+                                </form>
+                                {{#each Comments}}
+                                    <div class="row commentsSection">
+                                        <div class="col-md-3">
+                                            {{ userName }}
+                                        </div>
+                                        <div class="col-md-9">
+                                            {{ userComment }}
+                                        </div>
+                                    </div>
+                                {{/each}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6" style="padding: 0%;padding-left: 1px;">
+                        <div id="map_{{ @key }}" style="height: 1020px;"></div>
+                        <script>
+                            var key = 'cf0e4a0e194f14';
+                            // Add layers that we need to the map
+                            var streets = L.tileLayer.Unwired({key: key, scheme: "streets"});
+
+                            // Initialize the map
+                            var map = L.map('map_{{ @key }}', {
+                                center: [{{ Location.latitude }},{{ Location.longitude }}], //map loads with this location as center
+                                zoom: 15,
+                                layers: [streets] // Show 'streets' by default
+                            });
+
+                            // Add the 'scale' control
+                            L.control.scale().addTo(map);
+
+                            // Add the 'layers' control
+                            L.control.layers({
+                                "Streets": streets
+                            }).addTo(map);
+
+                            var marker = L.marker([{{ Location.latitude }},{{ Location.longitude }}]).addTo(map);
+
+                        </script>
+                    </div>
+                </div>
+            {{/each}}
+        {{/if}}
+    </div>
+
+
+
+</div>
+

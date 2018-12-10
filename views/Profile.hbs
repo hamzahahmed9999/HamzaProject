@@ -1,0 +1,299 @@
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" style="padding-left: 1em">
+        <a class="navbar-brand" href="#" style="color: white">Smart Travel</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active" style="margin-right: 10%;">
+                    <a class="nav-link" href="/" style="color: white !important;">Home <span class="sr-only">(current)</span></a>
+                </li>
+
+                <li class="nav-item dropdown" style="color: white">
+                    <button class="btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{ session.userName }}
+                    </button>
+
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="/settings">Settings</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/getWishList">Wish List</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/logOut">Log Out</a>
+                    </div>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0"  method="post" action="/searchProfiles">
+                        <select data-trigger="" name="searchType" style="border-radius: .25rem;padding: 1%">
+                            <option value="Name">Name</option>
+                            <option value="Age">Age</option>
+                            <option value="City">City</option>
+                            <option value="Country">Country</option>
+                            <option value="phoneNumber">Number</option>
+                        </select>
+
+                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="searchText">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+</header>
+<div class="content">
+
+    <div class="add_new_div">
+        <button class="btn add_new" data-toggle="modal" data-target="#exampleModal">+Add New</button>
+    </div>
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+                <div id="sidebar-wrapper" class="sidebar-toggle">
+                    <ul class="sidebar-nav">
+                        <li>
+                            <div class="active_box" id="Trip_1" onclick="ShowTrips(1)" style="margin-left: 2%;">
+                                <h3 class="box-style">Within City Trips</h3>
+                            </div>
+                        </li>
+                        <li>
+                            <div id="Trip_2" onclick="ShowTrips(2)">
+                                <h3>Out of City Trips</h3>
+                            </div>
+                        </li>
+                        <li>
+                            <div id="Trip_3" onclick="ShowTrips(3)">
+                                <h3>Out of State Trips</h3>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-9">
+                <div class="container" id="Trips_Div_1">
+                    <div class="row">
+                        {{#if Type1}}
+                            {{#each Type1}}
+                                <div class="col-md-4 mb-4">
+                                    <div class="card" style="width: 18rem;">
+                                        {{#if Thumbnail}}
+                                            <img class="card-img-top" src="{{ Thumbnail }}" alt="Card image cap" height="170">
+                                        {{ else }}
+                                            <img class="card-img-top" src="{{ Link }}" alt="Card image cap" height="170">
+                                        {{/if}}
+                                        <div class="card-body">
+                                            <h5 class="card-title" style="text-align: center">{{ Title }}</h5>
+                                            <div style="text-align: center">
+                                                <a href="/showJournal/1/{{ @key }}" class="btn btn-primary">Show</a>
+                                                <a href="/editJournal/1/{{ @key }}" class="btn btn-color">Edit</a>
+                                                <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#DeleteModal" data-whatever="/deleteJournal/1/{{ @key }}">Delete</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {{/each}}
+                        {{else}}
+                            <div class="col-md-12 mb-4" style="text-align: center">
+                                <h1 style="color: firebrick">No Record Found</h1>
+                            </div>
+                        {{/if}}
+                    </div>
+                </div>
+
+                <div class="container" id="Trips_Div_2" style="display: none;">
+                    <div class="row">
+                        {{#if Type2}}
+                            {{#each Type2}}
+                                <div class="col-md-4 mb-4">
+                                    <div class="card" style="width: 18rem;">
+                                        {{#if Thumbnail}}
+                                            <img class="card-img-top" src="{{ Thumbnail }}" alt="Card image cap" height="170">
+                                        {{ else }}
+                                            <img class="card-img-top" src="{{ Link }}" alt="Card image cap" height="170">
+                                        {{/if}}
+                                        <div class="card-body">
+                                            <h5 class="card-title" style="text-align: center">{{ Title }}</h5>
+                                            <div style="text-align: center">
+                                                <a href="/showJournal/2/{{ @key }}" class="btn btn-primary">Show</a>
+                                                <a href="/editJournal/2/{{ @key }}" class="btn btn-color">Edit</a>
+                                                <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#DeleteModal" data-whatever="/deleteJournal/2/{{ @key }}">Delete</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {{/each}}
+                        {{else}}
+                            <div class="col-md-12 mb-4" style="text-align: center">
+                                <h1 style="color: firebrick">No Record Found</h1>
+                            </div>
+                        {{/if}}
+                    </div>
+                </div>
+
+                <div class="container" id="Trips_Div_3" style="display: none;">
+                    <div class="row">
+                        {{#if Type3}}
+                            {{#each Type3}}
+                                <div class="col-md-4 mb-4">
+                                    <div class="card" style="width: 18rem;">
+                                        {{#if Thumbnail}}
+                                            <img class="card-img-top" src="{{ Thumbnail }}" alt="Card image cap" height="170">
+                                        {{ else }}
+                                            <img class="card-img-top" src="{{ Link }}" alt="Card image cap" height="170">
+                                        {{/if}}
+                                        <div class="card-body">
+                                            <h5 class="card-title" style="text-align: center">{{ Title }}</h5>
+                                            <div style="text-align: center">
+                                                <a href="/showJournal/2/{{ @key }}" class="btn btn-primary">Show</a>
+                                                <a href="/editJournal/2/{{ @key }}" class="btn btn-color">Edit</a>
+                                                <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#DeleteModal" data-whatever="/deleteJournal/3/{{ @key }}">Delete</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {{/each}}
+                        {{else}}
+                            <div class="col-md-12 mb-4" style="text-align: center">
+                                <h1 style="color: firebrick">No Record Found</h1>
+                            </div>
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</div>
+
+<!--  Add Diary Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add Diary</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="post" action="/addDiary" role="form" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="TitleInput">Title</label>
+                        <input type="text" name="title" class="form-control" id="TitleInput"  aria-describedby="TitleInput">
+                    </div>
+                    <div class="form-group">
+                        <label for="NameInput">Place Name</label>
+                        <input type="text" name="placeName" class="form-control" id="NameInput"  aria-describedby="TitleInput">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="DescriptionInput">Description</label>
+                        <textarea type="text" name="Description" class="form-control" cols="60" rows="5"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect2">Select Trip type</label>
+                        <select class="form-control" id="exampleFormControlSelect2" name="tripType">
+                            <option>Within City Trips</option>
+                            <option>Out of City Trips</option>
+                            <option>Out of State Trips</option>
+                        </select>
+                    </div>
+
+                    <div id="map" style="height: 150px;"></div>
+                    <script>
+                        var key = 'cf0e4a0e194f14';
+                        // Add layers that we need to the map
+                        var streets = L.tileLayer.Unwired({key: key, scheme: "streets"});
+
+                        // Initialize the map
+
+
+                        function showPosition(position) {
+                            console.log(position.coords.latitude +" "+position.coords.longitude);
+
+                            var map = L.map('map', {
+                                center: [position.coords.latitude, position.coords.longitude], //map loads with this location as center
+                                zoom: 15,
+                                layers: [streets] // Show 'streets' by default
+                            });
+
+
+
+                            // Add the 'scale' control
+                            L.control.scale().addTo(map);
+
+                            // Add the 'layers' control
+                            L.control.layers({
+                                "Streets": streets
+                            }).addTo(map);
+
+                            var popup = L.popup();
+
+                            function onMapClick(e) {
+                                popup.setLatLng(e.latlng)
+                                        .setContent("You clicked the map at " + e.latlng.toString())
+                                        .openOn(map);
+
+                                document.getElementById('location').setAttribute("value", e.latlng.toString());
+                            }
+
+                            map.on('click', onMapClick);
+
+                        }
+
+                    </script>
+
+                    <input type="text" id="location" name="location" hidden>
+
+                    <div class="form-group">
+                        <label for="filevalue">Add Picture or Video</label>
+                        <input type="file" class="btn" id="image" name="image" accept="image/*,video/*" >
+                    </div>
+
+                    <!--<div style="margin-bottom: 2%;">-->
+                        <!--75% Completed <span class="pull-right">Please wait...</span>-->
+                        <!--<div class="progress">-->
+                            <!--<div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+
+                    <div class="form-actions" style="text-align: right;">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-color">Save changes</button>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!--  END -->
+
+<!--  Delete Modal -->
+<div class="modal fade" id="DeleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">Delete Diary</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Are you Sure to delete this item?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <a href="#" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--  END -->

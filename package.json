@@ -1,0 +1,31 @@
+{
+  "name": "travelog",
+  "version": "0.0.0",
+  "private": true,
+  "engines": {
+    "node": "8.11.4"
+  },
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.332.0",
+    "cloudinary": "^1.11.0",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "express-handlebars": "^3.0.0",
+    "express-session": "^1.15.6",
+    "firebase": "^5.5.4",
+    "firebase-admin": "^6.0.0",
+    "firebase-key": "^2.0.1",
+    "hbs": "~4.0.1",
+    "http-errors": "~1.6.2",
+    "morgan": "~1.9.0",
+    "multer": "^1.4.1",
+    "node-sass-middleware": "0.11.0",
+    "passport": "^0.4.0",
+    "passport-facebook": "^2.1.1",
+    "passport-google-oauth": "^1.0.0"
+  }
+}

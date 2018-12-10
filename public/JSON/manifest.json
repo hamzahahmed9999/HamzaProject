@@ -1,0 +1,20 @@
+{
+  "short_name": "TLogs",
+  "name": "TraveLog",
+  "icons": [
+    {
+      "src": "/public/images/logo.jpg",
+      "type": "image/jpg",
+      "sizes": "300x300"
+    },
+    {
+      "src": "/public/images/logo_3.png",
+      "type": "image/png",
+      "sizes": "150x150"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#ededed",
+  "display": "fullscreen",
+  "theme_color": "#00A4AA"
+}

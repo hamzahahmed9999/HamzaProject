@@ -1,0 +1,728 @@
+$font-family: 'Poppins',sans-serif
+$main-color: #00E99B
+$main_heading-font: 'Pacifico',cursive
+
+
+html
+  height: 100%
+
+body
+  display: flex
+  display: -webkit-flex
+  flex-direction: column
+  -webkit-flex-direction: column
+  height: 100%
+
+
+
+
+@mixin color($col)
+  color: $col !important
+
+
+@mixin textAlign($align)
+  text-align: $align
+
+
+
+.loginBox
+  position: absolute
+  width: 100%
+  padding: 15px 30px
+  border-radius: 5px
+  background-color: rgba(255, 255, 255, 0.5)
+
+  max-width: 425px
+  display: flex
+  flex-direction: column
+
+
+.or
+  display: block
+  margin-bottom: 10px
+  @include textAlign(center)
+
+
+.btn-signup
+  margin-bottom: 20px
+  background: $main-color
+  @include textAlign(center)
+  @include color(white)
+
+  display: flex
+  justify-content: center
+
+
+.background-image
+  position: absolute
+  top: 0
+  bottom: -100px
+  left: 0
+  right: 0
+  background-repeat: no-repeat
+  background-size: cover
+  background-position: center
+  opacity: 0.9
+  background-image: url(../images/bg-sign_.jpg)
+
+
+.login-heading
+  font-family: $font-family
+  @include textAlign(center)
+  padding-bottom: 10px
+
+
+.btn-facebook
+  background-color: #3b5998
+  width: 150px
+
+
+.btn-google
+  background-color: #D0463D
+  width: 150px
+  margin-left: 1%
+
+
+.form-signin
+  width: 100%
+  max-width: 460px
+  padding: 15px
+  margin: auto
+  margin-top: 5%
+
+
+.websiteName
+  font-family: $main_heading-font
+  @include color(white)
+
+
+.btn
+  i
+    padding-right: 5px
+    font-size: 25px
+
+.form-signin
+  input
+    margin-bottom: 2%
+    border: none !important
+
+
+
+
+::-webkit-input-placeholder
+  @include textAlign(center)
+
+
+.forgot_password
+  @include textAlign(center)
+  cursor: pointer
+  margin: 0px
+
+
+.btn-register
+  text-transform: uppercase
+  background: white
+
+
+
+.bottom_signIn
+  display: flex
+  justify-content: center
+  padding-top: 3%
+  p
+    margin-top: 3%
+    margin-right: 3%
+  button
+    border-radius: 5%
+
+
+.privacy
+  @include textAlign(center)
+
+
+
+
+::-webkit-scrollbar
+  width: 8px
+  background-color: aqua
+
+
+::-webkit-scrollbar-thumb
+  border-radius: 10px
+  background-color: #a6a6a6
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, .3)
+
+
+::-webkit-scrollbar-track
+  border-radius: 10px
+  background-color: white
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, .3)
+
+
+.navbar
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)
+  padding-right: 4em
+  padding-left: 4em
+  background: white
+
+  .nav-link
+    @include color(#666666)
+
+    img
+      padding-right: 5px
+  .active
+    border-bottom: 2px solid $main-color
+  .navbar-brand
+    font-family: $main_heading-font
+    color: black
+    font-size: 22px
+  .dropdown
+    button
+      background: $main-color
+      @include color(#fff)
+    .initals
+      display: flex
+      flex-direction: row
+
+
+
+#myFooter
+  background-color: #3c3d41
+  color: white
+  padding-top: 30px
+  -webkit-box-flex: 0
+  -ms-flex: 0 0 auto
+  flex: 0 0 auto
+  -webkit-flex: 0 0 auto
+  .btn
+    color: white
+    background-color: #d84b6b
+    border-radius: 20px
+    border: none
+    width: 150px
+    display: block
+    margin: 0 auto
+    margin-top: 10px
+    line-height: 25px
+  .footer-copyright
+    background-color: #333333
+    padding-top: 3px
+    padding-bottom: 3px
+    text-align: center
+  .row
+    margin-bottom: 60px
+  .navbar-brand
+    margin-top: 45px
+    height: 65px
+  .footer-copyright p
+    margin: 10px
+    color: #ccc
+  ul
+    list-style-type: none
+    padding-left: 0
+    line-height: 1.7
+  h5
+    font-size: 18px
+    color: white
+    font-weight: bold
+    margin-top: 30px
+  h2 a
+    font-size: 50px
+    text-align: center
+    color: #fff
+  a
+    color: #d2d1d1
+    text-decoration: none
+    &:hover, &:focus
+      text-decoration: none
+      color: white
+  .social-networks
+    text-align: center
+    padding-top: 30px
+    padding-bottom: 16px
+    a
+      font-size: 32px
+      color: #f9f9f9
+      padding: 10px
+      -webkit-transition: 0.2s
+      -o-transition: 0.2s
+      transition: 0.2s
+      &:hover
+        text-decoration: none
+  .facebook:hover
+    color: #4267B2
+  .google:hover
+    color: #C23A2B
+  .twitter:hover
+    color: #00aced
+
+@media screen and (max-width: 767px)
+  #myFooter
+    text-align: center
+
+.content
+  flex: 1 0 auto
+  -webkit-flex: 1 0 auto
+  padding-top: 65px
+  background: #ededed
+
+  .data-col
+    width: 50%
+    padding: 20px
+    margin-top: 30px
+    background-color: rgba(250, 250, 250, 0.8)
+    color: #333333
+    margin-bottom: 20px
+    text-align: center
+
+
+  .general_header
+    //padding: 0px;
+    background-image: url(../images/bg-sign_.jpg)
+    background-size: cover
+    background-repeat: no-repeat
+    background-position: bottom
+
+    .row
+      .col-md-12
+        display: flex
+        justify-content: center
+
+  .add_new
+    background: $main-color
+    @include color(#fff)
+    width: 10%
+
+
+  .add_new_div
+    @include textAlign(center)
+    margin-top: 1%
+    margin-bottom: 1%
+  .container
+    margin-bottom: 4%
+
+    .row
+      .col-md-3
+        background: #fff
+        text-align: center
+        border-radius: 5%
+        padding-top: 5px
+        font-family: $font-family
+        cursor: pointer
+        @include color(#666666)
+        &:hover
+          color: darken(#666666, 15%) !important
+      .active_box
+        background: $main-color
+        @include color(#fff)
+        &:hover
+          @include color(#fff)
+
+.btn-color
+  background: $main-color
+  color: white
+
+
+//Cricle Progress Bar
+$fontSize: 30px
+$size: 5em
+$circleColor: #fff
+$innerColor: #00A4AA
+$holderColor: #ededed
+
+.circle-size
+  width: $size
+  height: $size
+  border-radius: 50%
+
+
+.clip-show-left
+  clip: rect(0, $size/2, $size, 0)
+
+
+.clip-show-right
+  clip: rect(0, $size, $size, $size/2)
+
+
+@mixin animation($animate...)
+  $max: length($animate)
+  $animations: ''
+
+  @for $i from 1 through $max
+    $animations: #{$animations + nth($animate, $i)}
+
+    @if $i < $max
+      $animations: #{$animations + ', '}
+
+  -webkit-animation: $animations
+  -moz-animation: $animations
+  -o-animation: $animations
+  animation: $animations
+
+
+.circle
+  @extend .circle-size
+  position: relative
+  margin: 50px auto
+  background: $circleColor
+  font-size: $fontSize
+
+
+.circle__mask
+  @extend .circle-size
+  position: absolute
+  left: 0
+  top: 0
+
+  &.on-left
+    @extend .clip-show-left
+
+  &.on-right
+    @extend .clip-show-right
+
+.circle__inner
+  @extend .circle-size
+  position: absolute
+  width: 100%
+  height: 100%
+  background: $innerColor
+
+  .on-left &
+    @extend .clip-show-right
+    @include animation(circle-left 5s linear 0s infinite)
+
+  .on-right &
+    @extend .clip-show-left
+    @include animation(circle-right 5s linear 0s infinite)
+
+
+.circle__holder
+  position: absolute
+  width: 80%
+  height: 80%
+  left: 10%
+  top: 10%
+  border-radius: 50%
+  background: $holderColor
+
+@-webkit-keyframes circle-left
+  0%
+    -webkit-transform: rotate(0)
+
+  25%
+    -webkit-transform: rotate(0)
+
+  50%
+    -webkit-transform: rotate(180deg)
+
+  75%
+    -webkit-transform: rotate(180deg)
+
+  100%
+    -webkit-transform: rotate(360deg)
+
+
+@-moz-keyframes circle-left
+  0%
+    -moz-transform: rotate(0)
+
+  25%
+    -moz-transform: rotate(0)
+
+  50%
+    -moz-transform: rotate(180deg)
+
+  75%
+    -moz-transform: rotate(180deg)
+
+  100%
+    -moz-transform: rotate(360deg)
+
+
+@keyframes circle-left
+  0%
+    transform: rotate(0)
+
+  25%
+    transform: rotate(0)
+
+  50%
+    transform: rotate(180deg)
+
+  75%
+    transform: rotate(180deg)
+
+  100%
+    transform: rotate(360deg)
+
+
+@-webkit-keyframes circle-right
+  0%
+    -webkit-transform: rotate(0)
+
+  25%
+    -webkit-transform: rotate(180deg)
+
+  50%
+    -webkit-transform: rotate(180deg)
+
+  75%
+    -webkit-transform: rotate(360deg)
+
+  100%
+    -webkit-transform: rotate(360deg)
+
+
+@-moz-keyframes circle-right
+  0%
+    -moz-transform: rotate(0)
+
+  25%
+    -moz-transform: rotate(180deg)
+
+  50%
+    -moz-transform: rotate(180deg)
+
+  75%
+    -moz-transform: rotate(360deg)
+
+  100%
+    -moz-transform: rotate(360deg)
+
+
+@keyframes circle-right
+  0%
+    transform: rotate(0)
+
+  25%
+    transform: rotate(180deg)
+
+  50%
+    transform: rotate(180deg)
+
+  75%
+    transform: rotate(360deg)
+
+  100%
+    transform: rotate(360deg)
+//end
+.form-control-borderless
+  border: none
+  &:hover, &:active, &:focus
+    border: none
+    outline: none
+    box-shadow: none
+
+.s003
+  display: -ms-flexbox
+  display: flex
+  -ms-flex-pack: center
+  justify-content: center
+  -ms-flex-align: center
+  align-items: center
+  font-family: 'Poppins', sans-serif
+  background-size: cover
+  background-position: center center
+  padding: 15px
+  margin-bottom: 5%
+  form
+    width: 100%
+    max-width: 790px
+    margin-bottom: 0
+  .input-select
+    width: 100%
+    display: inline-grid
+    height: 100%
+    border: none
+    select
+      text-indent: 35%
+      border: none
+  form .inner-form
+    background: #fff
+    display: -ms-flexbox
+    display: flex
+    width: 100%
+    -ms-flex-pack: justify
+    justify-content: space-between
+    -ms-flex-align: center
+    align-items: center
+    box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15)
+    border-radius: 3px
+    .input-field
+      height: 68px
+      input
+        height: 100%
+        background: transparent
+        border: 0
+        display: block
+        width: 100%
+        padding: 10px 32px
+        font-size: 16px
+        color: #555
+        &.placeholder, &:-moz-placeholder, &::-webkit-input-placeholder
+          color: #888
+          font-size: 16px
+        &:hover, &:focus
+          box-shadow: none
+          outline: 0
+          border-color: #fff
+      &.first-wrap
+        width: 200px
+        border-right: 1px solid rgba(0, 0, 0, 0.1)
+      &.second-wrap
+        -ms-flex-positive: 1
+        flex-grow: 1
+      &.third-wrap
+        width: 74px
+        .btn-search
+          height: 100%
+          width: 100%
+          white-space: nowrap
+          color: #fff
+          border: 0
+          cursor: pointer
+          background: $main-color
+          transition: all .2s ease-out, color .2s ease-out
+          svg
+            width: 16px
+          &:hover
+            background: #50c058
+
+//
+
+//
+//.s003 form .inner-form .input-field.third-wrap .btn-search:focus {
+//  outline: 0;
+//  box-shadow: none;
+//}
+
+@media screen and (max-width: 992px)
+  .s003 form .inner-form .input-field
+    height: 50px
+
+@media screen and (max-width: 767px)
+  .s003 form .inner-form
+    -ms-flex-wrap: wrap
+    flex-wrap: wrap
+    padding: 20px
+    .input-field
+      margin-bottom: 20px
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1)
+      input
+        padding: 10px 15px
+      &.first-wrap
+        width: 100%
+        border-right: 0
+        .choices__inner
+          padding: 10px 15px
+        .choices[data-type*="select-one"]:after
+          right: 11.5px
+          border-color: #e5e5e5 transparent transparent transparent
+      &.second-wrap
+        width: 100%
+        margin-bottom: 30px
+        input
+          border: 1px solid rgba(255, 255, 255, 0.3)
+      &.third-wrap
+        margin-bottom: 0
+        width: 100%
+
+
+
+.explore_card
+  h3
+    text-transform: uppercase
+    font-family: $font-family
+
+.settings
+  font-family: $font-family
+  .Cpassword
+    background: white
+    padding: 2%
+    text-align: center
+    .form-group
+      text-align: left
+
+  .setting_div
+    background: white
+    padding: 2%
+
+
+.error
+  color: red
+  text-align: center
+  margin-bottom: 2%
+
+.box-style
+    box-shadow: 0 40px 22px rgba(0,0,0,0.19)
+
+hr
+  display: block
+  position: absolute
+  border-top: 5px solid $main-color
+  z-index: -1
+  left: 0
+  width: 100%
+  margin: 0
+  letter-spacing: 50px
+
+hr.right
+  left: auto
+  right: 0
+
+.rate
+  float: left
+  height: 46px
+  padding: 0 10px
+
+.rate:not(:checked) > input
+  position: absolute
+  top: -9999px
+
+.rate:not(:checked) > label
+  float: right
+  width: 1em
+  overflow: hidden
+  white-space: nowrap
+  cursor: pointer
+  font-size: 30px
+  color: #ccc
+
+.rate:not(:checked) > label:before
+  content: '★ '
+
+.rate > input:checked ~ label
+  color: #ffc700
+
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label
+  color: #deb217
+
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label
+  color: #c59b08
+
+.commentsSection
+  border-bottom: 1px solid #ccc
+  padding: 10px 0
+
+.heart
+  width: 100px
+  height: 100px
+  background: url("https://cssanimation.rocks/images/posts/steps/heart.png") no-repeat
+  background-position: 0 0
+  cursor: pointer
+  transition: background-position 1s steps(28)
+  transition-duration: 0s
+  position: absolute
+  top: -35px
+  left: 120px
+  &.is-active
+    transition-duration: 1s
+    background-position: -2800px 0
+
+.fa-heart-o:before
+  content: ""
