@@ -41,7 +41,7 @@ module.exports = {
 
         console.log("title:" + title);
         console.log("title:" + placeName);
-        console.log("title:" + locationType);
+//        console.log("title:" + locationType);
         console.log("Description:" + Description);
         console.log("tripType:" + tripType);
         console.log("image:" + req.file.path);
