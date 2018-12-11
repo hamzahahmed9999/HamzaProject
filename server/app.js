@@ -125,7 +125,7 @@ app.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'em
 app.get('/auth/google/callback',
     passport.authenticate('google', { successRedirect : '/profile',failureRedirect: '/' }));
 
-Use the FacebookStrategy within Passport.
+//Use the FacebookStrategy within Passport.
 passport.use(new FacebookStrategy({
         clientID: config.facebookAuth.api_key,
         clientSecret: config.facebookAuth.api_secret,
