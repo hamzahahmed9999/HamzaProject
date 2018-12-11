@@ -4,9 +4,9 @@ module.exports={
 * It consists of Twitter app information, database information.
 */
     'facebookAuth' : {
-        "api_key": "",
-        "api_secret": "",
-        "callback_url": "",
+        "api_key": "274983170035084",
+        "api_secret": "aee4c24a5d90264d91a746725e1b19c1",
+        "callback_url": "https://cloud-travel.herokuapp.com/auth/facebook/callback",
     },
     'googleAuth' : {
         "CLIENT_ID": "",

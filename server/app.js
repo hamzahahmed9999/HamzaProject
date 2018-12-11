@@ -125,45 +125,45 @@ app.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'em
 app.get('/auth/google/callback',
     passport.authenticate('google', { successRedirect : '/profile',failureRedirect: '/' }));
 
-// Use the FacebookStrategy within Passport.
-// passport.use(new FacebookStrategy({
-//         clientID: config.facebookAuth.api_key,
-//         clientSecret: config.facebookAuth.api_secret,
-//         callbackURL:config.facebookAuth.callback_url,
-//         profileFields: ['id', 'first_name', 'last_name', 'email']
-//     },
-//     function(accessToken, refreshToken, profile, done) {
-//         console.log('profile email:' + JSON.stringify(profile['emails'][0]['value']));
-//         console.log('profile name:' + JSON.stringify(profile['name']['givenName'] +" "+ profile['name']['familyName']));
-//
-//
-//         let newUser={
-//             userID:profile['id'],
-//             userName: profile['name']['givenName'] +" "+ profile['name']['familyName'],
-//             userEmail:profile['emails'][0]['value']
-//         };
-//
-//         model.checkUserByFB_Google(newUser.userEmail,newUser.userID)
-//             .then(() => {
-//                 model.addUserByFB_Google(newUser.userName,newUser.userEmail,newUser.userID)
-//                     .then(()=>{
-//                         return done(null, newUser);
-//                     })
-//                     .catch(()=>{
-//                         return done(null, false);
-//                     })
-//             })
-//             .catch((err) => {
-//                 console.log("Error creating new user Google: " + err);
-//                 if(err===true){
-//                     return done(null, newUser);
-//                 } else if(err===false){
-//                     return done(null, false);
-//                 }
-//             });
-//     }
-// ));
-//
+Use the FacebookStrategy within Passport.
+passport.use(new FacebookStrategy({
+        clientID: config.facebookAuth.api_key,
+        clientSecret: config.facebookAuth.api_secret,
+        callbackURL:config.facebookAuth.callback_url,
+        profileFields: ['id', 'first_name', 'last_name', 'email']
+    },
+    function(accessToken, refreshToken, profile, done) {
+        console.log('profile email:' + JSON.stringify(profile['emails'][0]['value']));
+        console.log('profile name:' + JSON.stringify(profile['name']['givenName'] +" "+ profile['name']['familyName']));
+
+
+        let newUser={
+            userID:profile['id'],
+            userName: profile['name']['givenName'] +" "+ profile['name']['familyName'],
+            userEmail:profile['emails'][0]['value']
+        };
+
+        model.checkUserByFB_Google(newUser.userEmail,newUser.userID)
+            .then(() => {
+                model.addUserByFB_Google(newUser.userName,newUser.userEmail,newUser.userID)
+                    .then(()=>{
+                        return done(null, newUser);
+                    })
+                    .catch(()=>{
+                        return done(null, false);
+                    })
+            })
+            .catch((err) => {
+                console.log("Error creating new user Google: " + err);
+                if(err===true){
+                    return done(null, newUser);
+                } else if(err===false){
+                    return done(null, false);
+                }
+            });
+    }
+));
+
 //
 // passport.use(new GoogleStrategy({
 //         clientID: config.googleAuth.CLIENT_ID,
