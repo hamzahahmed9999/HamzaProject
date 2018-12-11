@@ -45,9 +45,38 @@
     <div class="container-fluid">
     {{#if Type1}}
         {{#each Type1}}
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-10" style="padding: 0%;padding-left: 1px;">
+                    <div id="map_{{ @key }}" style="height: 500px;"></div>
+                    <script>
+                        var key = 'cf0e4a0e194f14';
+                        // Add layers that we need to the map
+                        var streets = L.tileLayer.Unwired({key: key, scheme: "streets"});
+
+                        // Initialize the map
+                        var map = L.map('map_{{ @key }}', {
+                            center: [{{ Location.latitude }},{{ Location.longitude }}], //map loads with this location as center
+                            zoom: 15,
+                            layers: [streets] // Show 'streets' by default
+                        });
+
+                        // Add the 'scale' control
+                        L.control.scale().addTo(map);
+
+                        // Add the 'layers' control
+                        L.control.layers({
+                            "Streets": streets
+                        }).addTo(map);
+
+                        var marker = L.marker([{{ Location.latitude }},{{ Location.longitude }}]).addTo(map);
+
+                    </script>
+                </div>
+            </div>
         <div class="row" style="border-bottom: 2px solid">
-            <div class="col-md-6" style="padding: 3%; box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);">
-                <div class="card" style="width: 38rem;">
+            <div class="col-md-12" style="padding: 3%; box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);">
+                <div class="card">
                     {{#if Thumbnail}}
                         <video controls autoplay name="media" height="350"><source src="{{ Link }}"></video>
                     {{ else }}
@@ -118,32 +147,6 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6" style="padding: 0%;padding-left: 1px;">
-                <div id="map_{{ @key }}" style="height: 1020px;"></div>
-                <script>
-                    var key = 'cf0e4a0e194f14';
-                    // Add layers that we need to the map
-                    var streets = L.tileLayer.Unwired({key: key, scheme: "streets"});
-
-                    // Initialize the map
-                    var map = L.map('map_{{ @key }}', {
-                        center: [{{ Location.latitude }},{{ Location.longitude }}], //map loads with this location as center
-                        zoom: 15,
-                        layers: [streets] // Show 'streets' by default
-                    });
-
-                    // Add the 'scale' control
-                    L.control.scale().addTo(map);
-
-                    // Add the 'layers' control
-                    L.control.layers({
-                        "Streets": streets
-                    }).addTo(map);
-
-                    var marker = L.marker([{{ Location.latitude }},{{ Location.longitude }}]).addTo(map);
-
-                </script>
-            </div>
         </div>
         {{/each}}
     {{/if}}
@@ -152,9 +155,38 @@
     <div class="container-fluid">
         {{#if Type2}}
             {{#each Type2}}
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10" style="padding: 0%;padding-left: 1px;">
+                        <div id="map_{{ @key }}" style="height: 500px;"></div>
+                        <script>
+                            var key = 'cf0e4a0e194f14';
+                            // Add layers that we need to the map
+                            var streets = L.tileLayer.Unwired({key: key, scheme: "streets"});
+
+                            // Initialize the map
+                            var map = L.map('map_{{ @key }}', {
+                                center: [{{ Location.latitude }},{{ Location.longitude }}], //map loads with this location as center
+                                zoom: 15,
+                                layers: [streets] // Show 'streets' by default
+                            });
+
+                            // Add the 'scale' control
+                            L.control.scale().addTo(map);
+
+                            // Add the 'layers' control
+                            L.control.layers({
+                                "Streets": streets
+                            }).addTo(map);
+
+                            var marker = L.marker([{{ Location.latitude }},{{ Location.longitude }}]).addTo(map);
+
+                        </script>
+                    </div>
+                </div>
                 <div class="row" style="border-bottom: 2px solid">
-                    <div class="col-md-6" style="padding: 3%; box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);">
-                        <div class="card" style="width: 38rem;">
+                    <div class="col-md-12" style="padding: 3%; box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);">
+                        <div class="card" >
                             {{#if Thumbnail}}
                                 <video controls autoplay name="media" height="350"><source src="{{ Link }}"></video>
                             {{ else }}
@@ -216,32 +248,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6" style="padding: 0%;padding-left: 1px;">
-                        <div id="map_{{ @key }}" style="height: 1020px;"></div>
-                        <script>
-                            var key = 'cf0e4a0e194f14';
-                            // Add layers that we need to the map
-                            var streets = L.tileLayer.Unwired({key: key, scheme: "streets"});
-
-                            // Initialize the map
-                            var map = L.map('map_{{ @key }}', {
-                                center: [{{ Location.latitude }},{{ Location.longitude }}], //map loads with this location as center
-                                zoom: 15,
-                                layers: [streets] // Show 'streets' by default
-                            });
-
-                            // Add the 'scale' control
-                            L.control.scale().addTo(map);
-
-                            // Add the 'layers' control
-                            L.control.layers({
-                                "Streets": streets
-                            }).addTo(map);
-
-                            var marker = L.marker([{{ Location.latitude }},{{ Location.longitude }}]).addTo(map);
-
-                        </script>
-                    </div>
                 </div>
             {{/each}}
         {{/if}}
@@ -250,9 +256,37 @@
     <div class="container-fluid">
         {{#if Type3}}
             {{#each Type3}}
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-10" style="padding: 0%;padding-left: 1px;">
+                    <div id="map_{{ @key }}" style="height: 500px;"></div>
+                    <script>
+                        var key = 'cf0e4a0e194f14';
+                        // Add layers that we need to the map
+                        var streets = L.tileLayer.Unwired({key: key, scheme: "streets"});
+
+                        // Initialize the map
+                        var map = L.map('map_{{ @key }}', {
+                            center: [{{ Location.latitude }},{{ Location.longitude }}], //map loads with this location as center
+                            zoom: 15,
+                            layers: [streets] // Show 'streets' by default
+                        });
+
+                        // Add the 'scale' control
+                        L.control.scale().addTo(map);
+
+                        // Add the 'layers' control
+                        L.control.layers({
+                            "Streets": streets
+                        }).addTo(map);
+
+                        var marker = L.marker([{{ Location.latitude }},{{ Location.longitude }}]).addTo(map);
+
+                    </script>
+            </div>
                 <div class="row" style="border-bottom: 2px solid">
-                    <div class="col-md-6" style="padding: 3%; box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);">
-                        <div class="card" style="width: 38rem;">
+                    <div class="col-md-12" style="padding: 3%; box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);">
+                        <div class="card">
                             {{#if Thumbnail}}
                                 <video controls autoplay name="media" height="350"><source src="{{ Link }}"></video>
                             {{ else }}
@@ -314,38 +348,13 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6" style="padding: 0%;padding-left: 1px;">
-                        <div id="map_{{ @key }}" style="height: 1020px;"></div>
-                        <script>
-                            var key = 'cf0e4a0e194f14';
-                            // Add layers that we need to the map
-                            var streets = L.tileLayer.Unwired({key: key, scheme: "streets"});
 
-                            // Initialize the map
-                            var map = L.map('map_{{ @key }}', {
-                                center: [{{ Location.latitude }},{{ Location.longitude }}], //map loads with this location as center
-                                zoom: 15,
-                                layers: [streets] // Show 'streets' by default
-                            });
-
-                            // Add the 'scale' control
-                            L.control.scale().addTo(map);
-
-                            // Add the 'layers' control
-                            L.control.layers({
-                                "Streets": streets
-                            }).addTo(map);
-
-                            var marker = L.marker([{{ Location.latitude }},{{ Location.longitude }}]).addTo(map);
-
-                        </script>
-                    </div>
                 </div>
             {{/each}}
         {{/if}}
     </div>
 
-
+    </div>
 
 </div>
 

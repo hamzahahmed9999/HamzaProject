@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bc17a8c0-fa05-4f03-ab65-ca549313fd20" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/server/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/Profile.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/Profile.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/userJournal.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/userJournal.hbs" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -28,7 +29,7 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="css" value="5" />
-          <entry key="hbs" value="29" />
+          <entry key="hbs" value="31" />
           <entry key="js" value="21" />
           <entry key="sass" value="3" />
           <entry key="www" value="1" />
@@ -37,7 +38,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="5" />
-          <entry key="Handlebars/Mustache" value="29" />
+          <entry key="Handlebars/Mustache" value="31" />
           <entry key="JavaScript" value="22" />
           <entry key="Sass" value="3" />
         </counts>
@@ -45,7 +46,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="25" />
-          <entry key="hbs" value="197" />
+          <entry key="hbs" value="283" />
           <entry key="js" value="49" />
           <entry key="sass" value="4" />
         </counts>
@@ -53,7 +54,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="25" />
-          <entry key="Handlebars/Mustache" value="197" />
+          <entry key="Handlebars/Mustache" value="283" />
           <entry key="JavaScript" value="49" />
           <entry key="Sass" value="4" />
         </counts>
@@ -62,11 +63,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="127" column="43" lean-forward="true" selection-start-line="127" selection-start-column="43" selection-end-line="127" selection-end-column="43" />
+            <state relative-caret-position="318">
+              <caret line="132" column="65" lean-forward="true" selection-start-line="132" selection-start-column="65" selection-end-line="132" selection-end-column="65" />
             </state>
           </provider>
         </entry>
@@ -99,6 +100,40 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="119">
               <caret line="6" column="10" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/userJournal.hbs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="112">
+              <caret line="279" column="46" lean-forward="true" selection-start-line="279" selection-start-column="46" selection-end-line="279" selection-end-column="46" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#script#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#script#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" />
+                <element signature="n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#!!top" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/Profile.hbs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="254">
+              <caret line="149" column="118" selection-start-line="149" selection-start-column="118" selection-end-line="149" selection-end-column="118" />
+              <folding>
+                <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -137,12 +172,12 @@
         <option value="$PROJECT_DIR$/views/searchProfiles.hbs" />
         <option value="$PROJECT_DIR$/views/Settings.hbs" />
         <option value="$PROJECT_DIR$/views/profileJournal.hbs" />
-        <option value="$PROJECT_DIR$/views/Profile.hbs" />
-        <option value="$PROJECT_DIR$/views/userJournal.hbs" />
         <option value="$PROJECT_DIR$/server/controllers/userProfile.js" />
         <option value="$PROJECT_DIR$/views/index.hbs" />
         <option value="$PROJECT_DIR$/configuration/config.js" />
         <option value="$PROJECT_DIR$/server/app.js" />
+        <option value="$PROJECT_DIR$/views/userJournal.hbs" />
+        <option value="$PROJECT_DIR$/views/Profile.hbs" />
       </list>
     </option>
   </component>
@@ -273,12 +308,12 @@
       <workItem from="1544380891919" duration="7768000" />
       <workItem from="1544439154451" duration="1582000" />
       <workItem from="1544453235518" duration="871000" />
-      <workItem from="1544509237691" duration="1725000" />
+      <workItem from="1544509237691" duration="3544000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11946000" />
+    <option name="totallyTimeSpent" value="13765000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -290,7 +325,7 @@
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32885906" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32885906" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -419,20 +454,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/userJournal.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1012">
-          <caret line="44" column="33" selection-start-line="44" selection-start-column="33" selection-end-line="44" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/Profile.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="1" column="97" selection-start-line="1" selection-start-column="97" selection-end-line="1" selection-end-column="97" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/controllers/userProfile.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
@@ -468,8 +489,38 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="127" column="43" lean-forward="true" selection-start-line="127" selection-start-column="43" selection-end-line="127" selection-end-column="43" />
+        <state relative-caret-position="318">
+          <caret line="132" column="65" lean-forward="true" selection-start-line="132" selection-start-column="65" selection-end-line="132" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/userJournal.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="279" column="46" lean-forward="true" selection-start-line="279" selection-start-column="46" selection-end-line="279" selection-end-column="46" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#script#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#script#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" />
+            <element signature="n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#!!top" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/Profile.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="254">
+          <caret line="149" column="118" selection-start-line="149" selection-start-column="118" selection-end-line="149" selection-end-column="118" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
